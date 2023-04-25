@@ -3,6 +3,15 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+/**
+ * _printf - outputs a string after it has been properly formatted
+ *
+ * @format: inputs that determine how printf handles and returns the string
+ *
+ * Return: returns and prints a formatted string
+ *
+ */
+
 int _printf(const char *format, ...)
 {
     int i, j, k;
