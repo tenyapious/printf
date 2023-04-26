@@ -118,8 +118,6 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 	num_output_char = get_size(format, ap);
-
-	/**
 	va_end(ap);
 
 	str = malloc(sizeof(*str) * (num_output_char + 1));
@@ -129,14 +127,12 @@ int _printf(const char *format, ...)
 	}
 
 	va_start(ap, format);
-
-	*/
 	output_str(str, format, ap);
 	va_end(ap);
 
 	write(STDOUT_FILENO, str, sizeof(char) * num_output_char);
 
-	/* free(str); */
+	free(str);
 
 	return (num_output_char);
 }
