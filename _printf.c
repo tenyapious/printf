@@ -34,7 +34,7 @@ void printstr(va_list params)
 
 
 /* handle integers */
-void print_int();
+void print_int()
 {
 }
 
@@ -49,9 +49,9 @@ int _printf(const char *format, ...)
 	int counter = 0;
 
 	/* pass flags as a multidimensional array to loop through va */
-	cs_t dir = [] = {
+	cs_t dir [] = {
 		{'c', _putchar},
-		{'s', print_str},
+		{'s', printstr},
 		{'d', print_int},
 		{'i', print_int}
 	};
@@ -71,7 +71,7 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == dir[j].cs && format[i + 1] != '%')
 				{
-					dir[j].f(a);
+					dir[j].f(params);
 					i++;
 				}
 				j++;
