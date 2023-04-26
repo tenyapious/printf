@@ -116,6 +116,10 @@ int _printf(const char *format, ...)
 	va_list ap;
 	int num_output_char;
 
+	if (!format)
+	{
+		return (0);
+	}
 	va_start(ap, format);
 	num_output_char = get_size(format, ap);
 	va_end(ap);
