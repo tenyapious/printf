@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <stdarg.h>
 #include "main.h"
 /**
@@ -11,6 +12,7 @@ int _printf(const char *format, ...)
 {
 	int i, j = 0, k;
 	char *s;
+	char c;
 	va_list ap;
 
 	va_start(ap, format);
@@ -18,7 +20,8 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%' && format[i + 1] == 'c')
 		{
-			_putchar((char)va_arg(ap, int));
+			c = (char)va_arg(ap, int);
+			write(1, &c, 1);
 			i++;
 			j++;
 		}
@@ -27,7 +30,7 @@ int _printf(const char *format, ...)
 			s = va_arg(ap, char *);
 			for (k = 0; s[k] != '\0';)
 			{
-				_putchar(s[k]);
+				write(1, &(s[k]), 1);
 				k++;
 				j++;
 			}
@@ -35,13 +38,13 @@ int _printf(const char *format, ...)
 		}
 		else if (format[i] == '%' && format[i + 1 == '%'])
 		{
-			_putchar(format[i]);
+			write(1, &(format[i]), 1);
 			i++;
 			j++;
 		}
 		else
 		{
-			_putchar(format[i]);
+			write(1, &(format[i]), 1);
 			j++;
 		}
 	}
