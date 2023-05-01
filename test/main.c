@@ -9,6 +9,8 @@
  */
 int main(void)
 {
+
+
 	int len;
 	int len2;
 	unsigned int ui;
